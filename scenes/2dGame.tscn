@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bww3kejbro361"]
+
+[ext_resource type="VideoStream" uid="uid://crkxrq8qlbcms" path="res://texture/entirespongebob episode.ogv" id="1_dbult"]
+[ext_resource type="Script" uid="uid://b0vw87w1ymaoc" path="res://scripts/desktop.gd" id="1_h4b4c"]
+
+[node name="Desktop" type="Control" unique_id=1109593309 node_paths=PackedStringArray("video_player", "stop_button")]
+custom_minimum_size = Vector2(1024, 768)
+custom_maximum_size = Vector2(1024, 768)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_h4b4c")
+video_player = NodePath("VideoStreamPlayer")
+stop_button = NodePath("Button")
+
+[node name="FULLSCREEN" type="ColorRect" parent="." unique_id=37426329]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1842008758]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(3.2, 3.2)
+mouse_filter = 2
+stream = ExtResource("1_dbult")
+autoplay = true
+loop = true
+
+[node name="Button" type="Button" parent="." unique_id=1580965015]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 61.0
+mouse_default_cursor_shape = 2
+text = "Stop the bob"
