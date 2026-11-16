@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://okuadjei8go5"]
+
+[ext_resource type="Texture2D" uid="uid://ujcgmwygrym0" path="res://texture/ui bullshit/windows frame.png" id="1_oya5r"]
+[ext_resource type="Theme" uid="uid://cv4hjhdlp7pih" path="res://texture/ui bullshit/ui_theme.tres" id="1_to7fh"]
+[ext_resource type="FontFile" uid="uid://djtn5txgb4ak4" path="res://texture/ui bullshit/fonts/PixeloidSans-Bold.otf" id="3_qvkcj"]
+
+[node name="Window" type="Control" unique_id=1035633741]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 737.0
+offset_bottom = 614.0
+theme = ExtResource("1_to7fh")
+
+[node name="Frame" type="NinePatchRect" parent="." unique_id=15562598]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oya5r")
+draw_center = false
+region_rect = Rect2(0, 0, 544, 464)
+patch_margin_left = 17
+patch_margin_top = 47
+patch_margin_right = 16
+patch_margin_bottom = 41
+
+[node name="Margin" type="MarginContainer" parent="Frame" unique_id=890290470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_top = 47
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 41
+
+[node name="Content" type="Control" parent="Frame/Margin" unique_id=29662430]
+layout_mode = 2
+
+[node name="TitleBar" type="HBoxContainer" parent="Frame" unique_id=1727394979]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 29.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 4
+
+[node name="Icon" type="TextureRect" parent="Frame/TitleBar" unique_id=901034691]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Frame/TitleBar" unique_id=1102106199]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_qvkcj")
+text = "Terminal "
+vertical_alignment = 1
+
+[node name="MinButton" type="TextureButton" parent="Frame/TitleBar" unique_id=1329706495]
+layout_mode = 2
+
+[node name="CloseButton" type="TextureButton" parent="Frame/TitleBar" unique_id=229075913]
+layout_mode = 2

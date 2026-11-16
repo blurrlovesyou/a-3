@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://cv4hjhdlp7pih"]
+
+[ext_resource type="FontFile" uid="uid://c6031vc4g1acq" path="res://texture/ui bullshit/fonts/PixeloidSans.otf" id="1_auqal"]
+
+[resource]
+default_font = ExtResource("1_auqal")

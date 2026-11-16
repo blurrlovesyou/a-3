@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bww3kejbro361"]
+
+[ext_resource type="VideoStream" uid="uid://crkxrq8qlbcms" path="res://texture/entirespongebob episode.ogv" id="1_dbult"]
+[ext_resource type="Script" uid="uid://b0vw87w1ymaoc" path="res://scripts/desktop.gd" id="1_h4b4c"]
+[ext_resource type="Texture2D" uid="uid://71tv3biwj51a" path="res://texture/ui bullshit/wallpaper option 1.jpg" id="3_bs4gy"]
+[ext_resource type="Texture2D" uid="uid://btn105ic0u452" path="res://texture/ui bullshit/taskbar.png" id="4_mnua4"]
+[ext_resource type="Theme" uid="uid://cv4hjhdlp7pih" path="res://texture/ui bullshit/ui_theme.tres" id="5_eyx7u"]
+[ext_resource type="Script" uid="uid://bfgyiax4fhp7e" path="res://scripts/clock.gd" id="6_2owd1"]
+[ext_resource type="FontFile" uid="uid://djtn5txgb4ak4" path="res://texture/ui bullshit/fonts/PixeloidSans-Bold.otf" id="7_eyx7u"]
+
+[node name="Desktop" type="Control" unique_id=1109593309 node_paths=PackedStringArray("video_player", "stop_button")]
+custom_minimum_size = Vector2(1024, 768)
+custom_maximum_size = Vector2(1024, 768)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_h4b4c")
+video_player = NodePath("VideoStreamPlayer")
+stop_button = NodePath("Button")
+
+[node name="FULLSCREEN" type="ColorRect" parent="." unique_id=37426329]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1842008758]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(3.2, 3.2)
+mouse_filter = 2
+stream = ExtResource("1_dbult")
+autoplay = true
+loop = true
+
+[node name="Button" type="Button" parent="." unique_id=1580965015]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 61.0
+mouse_default_cursor_shape = 2
+text = "Stop the bob"
+
+[node name="Wallpaper" type="TextureRect" parent="." unique_id=1002888216]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+texture = ExtResource("3_bs4gy")
+
+[node name="Taskbar" type="TextureRect" parent="." unique_id=1997732906]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -768.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_mnua4")
+stretch_mode = 2
+
+[node name="AppIcons" type="HBoxContainer" parent="Taskbar" unique_id=555161644]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 735.0
+offset_right = 765.0
+offset_bottom = 760.0
+
+[node name="Clock" type="Label" parent="Taskbar" unique_id=1467876404]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 731.0
+offset_right = 1017.0
+offset_bottom = 766.0
+theme = ExtResource("5_eyx7u")
+theme_override_colors/font_color = Color(0.2901961, 0.39607844, 0.48235294, 1)
+theme_override_fonts/font = ExtResource("7_eyx7u")
+theme_override_font_sizes/font_size = 10
+text = "12:00
+01/01/2034"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_2owd1")
+
+[node name="Label" type="Label" parent="Taskbar" unique_id=1068473382]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 741.0
+offset_right = 141.0
+offset_bottom = 754.0
+theme_override_fonts/font = ExtResource("7_eyx7u")
+theme_override_font_sizes/font_size = 10
+text = "Anonymous User"
