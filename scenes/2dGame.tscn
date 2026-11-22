@@ -4,11 +4,13 @@
 [ext_resource type="Script" uid="uid://b0vw87w1ymaoc" path="res://scripts/desktop.gd" id="1_h4b4c"]
 [ext_resource type="Texture2D" uid="uid://71tv3biwj51a" path="res://texture/ui bullshit/wallpaper option 1.jpg" id="3_bs4gy"]
 [ext_resource type="Texture2D" uid="uid://btn105ic0u452" path="res://texture/ui bullshit/taskbar.png" id="4_mnua4"]
+[ext_resource type="PackedScene" uid="uid://okuadjei8go5" path="res://scenes/window.tscn" id="4_ssskx"]
 [ext_resource type="Theme" uid="uid://cv4hjhdlp7pih" path="res://texture/ui bullshit/ui_theme.tres" id="5_eyx7u"]
 [ext_resource type="Script" uid="uid://bfgyiax4fhp7e" path="res://scripts/clock.gd" id="6_2owd1"]
 [ext_resource type="FontFile" uid="uid://djtn5txgb4ak4" path="res://texture/ui bullshit/fonts/PixeloidSans-Bold.otf" id="7_eyx7u"]
 [ext_resource type="Script" uid="uid://caoyvbpwmd762" path="res://scenes/webcamevent.gd" id="8_2owd1"]
 [ext_resource type="Texture2D" uid="uid://ujcgmwygrym0" path="res://texture/ui bullshit/windows frame.png" id="9_vfc0v"]
+[ext_resource type="PackedScene" uid="uid://dg1468gi0whfa" path="res://scenes/failscreen.tscn" id="11_7nuev"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2owd1"]
 
@@ -56,6 +58,7 @@ text = "Stop the bob"
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 768.0
+mouse_filter = 0
 texture = ExtResource("3_bs4gy")
 
 [node name="Taskbar" type="TextureRect" parent="." unique_id=1997732906]
@@ -71,6 +74,7 @@ offset_right = 2.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 0
 texture = ExtResource("4_mnua4")
 stretch_mode = 2
 
@@ -107,7 +111,16 @@ theme_override_fonts/font = ExtResource("7_eyx7u")
 theme_override_font_sizes/font_size = 10
 text = "Anonymous User"
 
+[node name="testwindow" parent="." unique_id=1035633741 instance=ExtResource("4_ssskx")]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 137.0
+offset_right = 646.0
+offset_bottom = 572.0
+
 [node name="WEBCAMEVENT" type="Node2D" parent="." unique_id=1524478349 node_paths=PackedStringArray("terminal_control", "failed_control", "cameraborder_control")]
+visible = false
 script = ExtResource("8_2owd1")
 min_wait_time = 10.0
 max_wait_time = 12.0
@@ -115,7 +128,7 @@ terminal_flash_time = 0.5
 movement_threshold = 0.85
 sensitivity = 400.0
 terminal_control = NodePath("scary terminal")
-failed_control = NodePath("debugFAIL")
+failed_control = NodePath("../failscreen")
 cameraborder_control = NodePath("camera border")
 webcam_position = Vector2(140, 280)
 webcam_size = Vector2(480, 360)
@@ -147,6 +160,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 17
 theme_override_constants/margin_top = 47
 theme_override_constants/margin_right = 16
@@ -188,6 +202,7 @@ offset_right = -7.0
 offset_bottom = 29.0
 grow_horizontal = 2
 offset_transform_enabled = true
+mouse_filter = 2
 theme_override_constants/separation = 4
 
 [node name="Icon" type="TextureRect" parent="WEBCAMEVENT/scary terminal/TitleBar" unique_id=94385518]
@@ -216,7 +231,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="WEBCAMEVENT/debugFAIL" unique_id=26812053]
+[node name="Label __ deletable i think" type="Label" parent="WEBCAMEVENT/debugFAIL" unique_id=26812053]
+visible = false
 layout_mode = 0
 offset_left = 38.0
 offset_top = 239.0
@@ -271,6 +287,7 @@ offset_right = -7.0
 offset_bottom = 29.0
 grow_horizontal = 2
 offset_transform_enabled = true
+mouse_filter = 2
 theme_override_constants/separation = 4
 
 [node name="Icon" type="TextureRect" parent="WEBCAMEVENT/camera border/TitleBar" unique_id=1287307428]
@@ -291,3 +308,9 @@ layout_mode = 2
 
 [node name="CloseButton" type="TextureButton" parent="WEBCAMEVENT/camera border/TitleBar" unique_id=257270866]
 layout_mode = 2
+
+[node name="failscreen" parent="." unique_id=1916933331 instance=ExtResource("11_7nuev")]
+visible = false
+layout_mode = 1
+
+[editable path="testwindow"]
