@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://caoyvbpwmd762" path="res://scenes/webcamevent.gd" id="8_2owd1"]
 [ext_resource type="Texture2D" uid="uid://ujcgmwygrym0" path="res://texture/ui bullshit/windows frame.png" id="9_vfc0v"]
 [ext_resource type="PackedScene" uid="uid://dg1468gi0whfa" path="res://scenes/failscreen.tscn" id="11_7nuev"]
+[ext_resource type="PackedScene" uid="uid://bgcyevuq7fvmn" path="res://scenes/wiregame.tscn" id="12_o77it"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2owd1"]
 
@@ -313,4 +314,20 @@ layout_mode = 2
 visible = false
 layout_mode = 1
 
+[node name="wiregame" parent="." unique_id=306174816 instance=ExtResource("4_ssskx")]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 182.0
+offset_right = 924.0
+offset_bottom = 796.0
+closable = false
+
+[node name="Frame" parent="wiregame" index="0" unique_id=15562598]
+offset_right = -80.0
+offset_bottom = -191.0
+
+[node name="wiregame" parent="wiregame/Frame/Margin/Content" parent_id_path=PackedInt32Array(306174816, 29662430) index="0" unique_id=1350637745 instance=ExtResource("12_o77it")]
+layout_mode = 0
+
 [editable path="testwindow"]
+[editable path="wiregame"]
